@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .content{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+        .slideRight-enter-active,.slideRight-leave-active{
+            transition: all 5s;
+        }
+        .slideRight-enter,.slideRight-leave-to{
+            transform: translateX(100px);
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <transition name="slideRight">
+        <div v-if="isShow" class="content">
+
+        </div>
+    </transition>
+
+    <button @click="qh">切换</button>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            isShow:true
+        },
+        methods:{
+            qh:function () {
+                this.isShow = !this.isShow
+            }
+        }
+    })
+</script>
+</body>
+</html>

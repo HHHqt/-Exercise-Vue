@@ -3,8 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="../js/vue.js"></script>
 </head>
 <body>
-
+<div id="app">
+    <div class="head">
+        <h2>ToDoList</h2>
+        <input type="text" v-model="add" value="">
+    </div>
+    <div class="bottom">
+        <div><h2>正在进行</h2>
+            <span v-for="item in things" style="display: block">
+                <input type="checkbox" name="things" :value="item">
+                {{item}}
+            </span>
+        </div>
+        <div><h2>已经完成</h2>
+            <span v-for="item in things" style="display: block">
+                <input type="checkbox" name="things" :value="item">
+                {{item}}
+            </span>
+        </div>
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            add:"添加",
+            things:['ok','no','some','now']
+        }
+    })
+</script>
 </body>
 </html>
