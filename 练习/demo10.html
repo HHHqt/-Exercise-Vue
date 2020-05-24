@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{count}}
+    <button @click="count += 1">点击</button>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            count:0
+        },
+
+    })
+</script>
+</body>
+</html>

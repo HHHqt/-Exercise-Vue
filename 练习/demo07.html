@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-if="islogin" class="login">
+        <h3>登录</h3>
+        <div>
+            用户名：
+            <input type="text" name="username">
+        </div>
+        <div>
+            密码：
+            <input type="password" name="password">
+        </div>
+        <button>登录</button>
+    </div>
+    <div v-else class="register">
+        <h3>注册</h3>
+        <div>
+            用户名：
+            <input type="username" name="username">
+        </div>
+        <div>
+            密码：
+            <input type="password" name="password">
+        </div>
+        <button>注册</button>
+    </div>
+    <button @click="Change">切换</button>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            islogin: true,
+        },
+        methods: {
+            Change: function () {
+                this.islogin = !this.islogin;
+            }
+        },
+    })
+</script>
+</body>
+</html>

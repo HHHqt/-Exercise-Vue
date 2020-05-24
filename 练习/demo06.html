@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../js/vue.js"></script>
+    <div id="app" >
+        <hr>
+        <ul>
+            <h3>学生列表</h3>
+            <li v-for='item in students' >
+                <h4>{{item.studentsName}}</h4> 
+                <p>{{item.age}}{{item.school}}</p>
+            </li>
+        </ul>
+        <hr>
+        <ul>
+            <h3>学生列表（含索引值）</h3>
+            <li v-for='item,key in students'>
+                <h4>索引值：{{key}} {{item.studentsName}}</h4> 
+                <p>{{item.age}}{{item.school}}</p>
+            </li>
+        </ul>
+        <hr>
+        <ul>
+            <h3>循环对象</h3>
+            <li v-for='item in students[0]'>
+                {{item}}
+            </li>
+        </ul>
+        <hr>
+        <h3>条件+循环渲染（将偶数年龄的学生渲染出来）</h3>
+        <ul>
+            <li v-for='item,key in students' v-if='item.age%2==0'>
+                <h4>{{key}}-----{{item.studentsName}}</h4> 
+                <p>{{item.age}}{{item.school}}</p>
+            </li>
+        </ul>
+    </div>
+    <script>
+            var app = new Vue({
+                el:"#app",
+                data:{
+                    star:['hqt','hcr','syq'],
+                    students:[
+                        {
+                           studentsName:"hqt", 
+                           age:'18',
+                           school:'北大',
+                        },
+                        {
+                           studentsName:"hcr", 
+                           age:'17',
+                           school:'北大',
+                        },
+                        {
+                           studentsName:"syq", 
+                           age:'18',
+                           school:'北大',
+                        },
+                    ],
+                }
+            })
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div v-show="xianshione" id="one">
+        HelloWorld
+    </div>
+    <div v-show="xianshitwo" id="two">
+        nihao
+    </div>
+    <div v-show="xianshithree" id="three">
+        hqt
+    </div>
+    <button @click="Dianjione">首页</button>
+    <button @click="Dianjitwo">第二页</button>
+    <button @click="Dianjithree">第三页</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            xianshione:true,
+            xianshitwo:false,
+            xianshithree:false
+        },
+        methods:{
+            Dianjione:function () {
+                this.xianshione = true;
+                this.xianshitwo = false;
+                this.xianshithree = false;
+            },
+            Dianjitwo:function () {
+                this.xianshione = false;
+                this.xianshitwo = true;
+                this.xianshithree = false;
+            },
+            Dianjithree:function () {
+                this.xianshione = false;
+                this.xianshitwo = false;
+                this.xianshithree = true;
+            }
+        }
+    })
+</script>
+</body>
+</html>

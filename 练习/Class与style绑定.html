@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .active{
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+<!--    <div id="page"></div>-->
+<!--    通过对象的方式决定是否存在某个类-->
+    <div :class="{active:color}">
+
+    </div>
+    <button @click="qh">切换</button>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+              color:true
+        },
+        methods:{
+            qh:function () {
+                this.color = !this.color;
+            }
+        }
+    })
+</script>
+</body>
+</html>

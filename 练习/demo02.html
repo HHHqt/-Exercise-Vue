@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h1>用户名:{{username}}</h1>
+    <h3 v-if = "vip">用户类型:VIP</h3>
+<!--    v-if和v-else中间不能有其他元素-->
+    <h3 v-else>用户类型：普通用户</h3>
+    <hr>
+
+</div>
+<div id="time">
+    <h1>用户运行登录时间</h1>
+    <h3 v-if="age>18">允许时间24h</h3>
+    <h3 v-else-if="age>14">8h</h3>
+    <h3 v-else-if="age>12">6h</h3>
+    <h3 v-else="age<8">3h</h3>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            username:'hqt',
+            vip:true
+        }
+    })
+    var hqt = new Vue({
+        el:'#time',
+        data:{
+            age:24,
+    }
+    })
+</script>
+</body>
+</html>

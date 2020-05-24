@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>当前计数:{{counter}}</h2>
+<!--    v-on监听事件，-->
+<!--    <button v-on:click="counter++">+</button>-->
+<!--    <button v-on:click="counter&#45;&#45;">-</button>-->
+    <button v-on:click="add">+</button>
+<!--    @click是v-on:click的语法糖，是他的简写-->
+    <button @click="sub">-</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            counter:0
+        },
+        //methods用于在vue对象中定义方法
+        methods:{
+            add: function () {
+                console.log('add被执行')
+                this.counter++//在同一函数里用this.的方式调用对象
+            },
+            sub: function () {
+                console.log('sub被执行')
+                this.counter--
+            },
+        }
+    })
+</script>
+</body>
+</html>

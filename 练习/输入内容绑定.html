@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--    数据的双向绑定-->
+<!--    单行文本输入框-->
+    <input type="text" name="username" v-model="username" value="">
+    <p>{{username}}</p>
+    <hr>
+<!--    多行文本输入框-->
+    <textarea name="" id="" cols="30" rows="10" v-model="username"></textarea>
+    <h1>复选框：选择喜欢的水果</h1>
+    <span v-for="item in fruits">
+        {{item}}
+        <input type="checkbox" name="fruit" :value="item" v-model="checkFruits">
+    </span>
+    <h2>{{checkFruits}}</h2>
+    <h1>单选框：选择喜欢的水果</h1>
+    <span v-for="item in fruits">
+        {{item}}
+        <input type="radio" name="fruit" :value="item" v-model="radioFruits">
+    </span>
+    <h2>{{radioFruits}}</h2>
+
+    <h1>单选选择城市</h1>
+    <select v-model="chooseCity">
+        <option disabled value="">请选择</option>
+        <option v-for="item in city" :value="item">{{item}}</option>
+    </select>
+    <h2>{{chooseCity}}</h2>
+
+    <h1>多选选择城市</h1>
+    <select v-model="moreCity" multiple>
+        <option v-for="item in city" :value="item">{{item}}</option>
+    </select>
+    <h2>{{moreCity}}</h2>
+</div>
+<script>
+    var app = new  Vue({
+        el:"#app",
+        data:{
+            username:"胡春如",
+            fruits:['苹果','香蕉','葡萄'],
+            checkFruits:[],
+            radioFruits:"",
+            city:['北京','上海','杭州'],
+            chooseCity:"",
+            moreCity:[]
+        }
+    })
+</script>
+</body>
+</html>

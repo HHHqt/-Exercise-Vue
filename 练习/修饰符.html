@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="btn" @click="clickBtn">
+<!--        修饰符.stop 阻止向上传递-->
+        <button @click.stop="clickEvent">点击</button>
+    </div>
+    <form action="" method="post">
+<!--        绑定输入框按键事件此处绑定了CTRL-->
+        <input type="text" @keydown.ctrl="Weather" name="username" v-model="city" id="userid" value="">
+<!--        .prevent 阻止默认事件 提交事件不再重载页面-->
+        <input @click.prevent="Weather" type="submit" value="提交">
+    </form>
+    <div id="weather">
+        <h1>{{tmp}}</h1>
+        <h2>{{cond_txt}}</h2>
+    </div>
+    <div id="oneEvent">
+<!--        .once只触发一次-->
+        <button @click.once="oneEvent">只触发一次</button>
+    </div>
+    <div>
+<!--        .exact修饰符精确触发-->
+        <button @click.exact="ctrlEvent">按住Ctrl事件</button>
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            city:"",
+            tmp:"",
+            cond_txt:"",
+        },
+        methods:{
+          clickEvent:function () {
+                console.log("clickEvent")
+          },
+          clickBtn:function (){
+                console.log("clickBtn")
+          },
+            Weather:async function () {
+                console.log("searchWeather")
+                console.log(this.city)
+                //ajex请求
+                let httpUrl = `https://free-api.heweather.net/s6/weather/now?location=${this.city}&key=4a40efb249db402ba08d70595c9c7699`
+                let res = await fetch(httpUrl)
+                let result = await res.json()
+                console.log(result)
+                let now = result.HeWeather6[0].now;
+                this.tmp = now.tmp
+                this.cond_txt = now.cond_txt
+          },
+            oneEvent:function () {
+                console.log("只触发一次")
+            },
+            ctrlEvent:function () {
+                console.log("ctrlEvent")
+            }
+        }
+    })
+</script>
+</body>
+</html>

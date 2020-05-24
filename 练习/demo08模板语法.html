@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        #login{
+            background-color: black;
+        }
+        #request{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h1>{{msg}}</h1>
+<!--    v-once一次性插入不再二次修改-->
+    <h1 v-once>{{msg}}</h1>
+    <h1>{{HtmlText}}</h1>
+<!--    v-html插入HTML内容-->
+    <h1 v-html="HtmlText"></h1>
+<!--    v-bind绑定动态属性-->
+<!-- 全写   <div v-bind:id="idname"></div>-->
+<!-- 缩写   <div :id="idname"></div>-->
+    <div v-bind:id="name">
+        <h1>登录</h1>
+    </div>
+<!--    模板语言的表达式应用-->
+    <div>
+        {{firstname+lastname}}
+    </div>
+<!--    三元运算符-->
+    <div>
+        {{isVip?"欢迎回来":"请充值"}}
+    </div>
+    <button @click="ChangeColor">改变背景颜色</button>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            msg:"HelloWorld",
+            HtmlText:'<span>HelloWorld</span>',
+            name:'login',
+            firstname:'张',
+            lastname:'三',
+            isVip:true
+        },
+        methods:{
+            ChangeColor:function () {
+                document.body.style.backgroundColor = "pink"
+            }
+        }
+    })
+</script>
+</body>
+</html>

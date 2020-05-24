@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in oddstudents">
+            <h3>{{item.studentsName}}</h3>
+            <h4>{{item.age}}
+                {{item.school}}</h4>
+        </li>
+    </ul>
+</div>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            students:[
+                {
+                    studentsName:"hqt",
+                    age:'18',
+                    school:'北大',
+                },
+                {
+                    studentsName:"hcr",
+                    age:'17',
+                    school:'北大',
+                },
+                {
+                    studentsName:"syq",
+                    age:'18',
+                    school:'北大',
+                },
+            ],
+        },
+        computed:{
+            oddstudents:function () {
+                let results = this.students.filter(function (item) {
+                    return item.age%2==0
+                })
+                return results
+            },
+        }
+    })
+</script>
+</body>
+</html>

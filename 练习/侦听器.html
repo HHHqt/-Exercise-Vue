@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{msg}}
+    <hr>
+    {{reverseMsg}}
+    <ul>
+        <li v-for="item in arr">{{item}}</li>
+    </ul>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            msg:"Hello World",
+            arr:['hcr','hqt','syq'],
+        },
+        computed:{
+            reverseMsg:{
+                //getter
+                get:function () {
+                    return this.msg.split("").reverse().join("")
+                },
+                // setter
+                set:function (value) {
+                    this.msg = value.split("").reverse().join("")
+                }
+            }
+        },
+        //监听事件函数
+        watch:{
+            msg:function (v) {
+                console.log("监听事件")
+                console.log(v)
+            },
+            arr:function (v) {
+                console.log("监听事件")
+                console.log(v)
+            }
+        },
+    })
+</script>
+</body>
+</html>

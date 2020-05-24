@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--    数据不变的情况下效果一样，数据改变的情况下计算属性更高效-->
+<!--    计算属性-->
+    <h1>{{fullname}}</h1>
+<!--    一般情况下写法-->
+    <h1>{{firstname+lastname}}</h1>
+<!--    逆序显示-->
+<!--    一般写法.split("")分解.reverse()倒序.join("")输出-->
+    <h1>{{word.split("").reverse().join("")}}</h1>
+<!--    计算属性-->
+    <h1>{{wordtwo}}</h1>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            firstname:'张',
+            lastname:'三',
+            word:'HelloWorld'
+        },
+        computed:{
+            fullname:function () {
+                //会将计算的结果进行缓存，只要this.firstname和lastname变量的值不变，就不会重新加载
+                return this.firstname+this.lastname
+            },
+            wordtwo:function () {
+                return this.word.split("").reverse().join("")
+            }
+        }
+    })
+</script>
+</body>
+</html>

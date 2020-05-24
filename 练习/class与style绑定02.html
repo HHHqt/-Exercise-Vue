@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--    CSS内联样式变量拼接-->
+    <div style="width: 100px;height: 100px;" v-bind:style="{border:borderWidth + 'px solid pink',backgroundColor:background}"></div>
+<!--    CSS内联样式放置对象-->
+    <div v-bind:style="styleObject"></div>
+    <div v-bind:style="styleArr"></div>
+</div>
+<script>
+    var  app = new Vue({
+        el:"#app",
+        data:{
+            borderWidth:20,
+            background:'red',
+            styleObject:{
+                backgroundColor:'red',
+                width:'200px',
+                height:'200px'
+            },
+            styleArr:[
+                {
+                background: 'pink',
+                width: '200px',
+                height:'200px'
+            },{
+                border:'20px solid skyblue'
+            }
+            ]
+        },
+    })
+</script>
+</body>
+</html>
