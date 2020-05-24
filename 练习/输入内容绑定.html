@@ -13,7 +13,9 @@
     <p>{{username}}</p>
     <hr>
 <!--    多行文本输入框-->
-    <textarea name="" id="" cols="30" rows="10" v-model="username"></textarea>
+<!--    修饰符.lazy-->
+<!--    修饰符.trim删去头尾空白字符-->
+    <textarea name="" id="" cols="30" rows="10" v-model.lazy.trim="username"></textarea>
     <h1>复选框：选择喜欢的水果</h1>
     <span v-for="item in fruits">
         {{item}}
