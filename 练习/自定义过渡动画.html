@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <style>
+        p{
+            font-size: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <transition
+            name="n"
+            enter-active-class="animated wobble"
+            leave-active-class="animated bounceOut
+"
+    >
+        <p v-if="show">Animate</p>
+    </transition>
+
+    <button @click="show = !show">切换</button>
+</div>
+<script>
+    var app = new  Vue({
+        el:'#app',
+        data:{
+            show:true
+        }
+    })
+</script>
+</body>
+</html>

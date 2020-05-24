@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="../js/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
     <style>
         .content{
             width: 200px;
@@ -21,12 +22,9 @@
 </head>
 <body>
 <div id="app">
-    <transition name="slideRight">
-        <div v-if="isShow" class="content">
-
-        </div>
+    <transition name="slideRight" enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
+        <div v-if="isShow" class="content"></div>
     </transition>
-
     <button @click="qh">切换</button>
 </div>
 <script>
