@@ -17,11 +17,9 @@
     <transition
             name="n"
             enter-active-class="animated wobble"
-            leave-active-class="animated bounceOut"
-    >
+            leave-active-class="animated bounceOut">
         <p v-if="show">Animate</p>
     </transition>
-
     <button @click="show = !show">切换</button>
 </div>
 <script>
