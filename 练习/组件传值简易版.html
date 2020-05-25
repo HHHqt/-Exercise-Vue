@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+<!--        从父组件传值到子组件-->
+<!--        静态属性-->
+        <school school-name="北大"></school>
+<!--        动态属性-->
+        <school :school-name="'清华'"></school>
+<!--        动态属性-->
+        <school v-for="item in schoolList" :school-name="item"></school>
+    </ul>
+</div>
+<script>
+    Vue.component("school",{
+        props:['schoolName'],
+        template: `<li>
+                        <h3>学校名称：{{schoolName}}</h3>
+                   </li>`
+    })
+    var app = new Vue({
+        el:'#app',
+        data:{
+            schoolList:[
+                    "浙大","18"
+            ]
+        },
+    })
+</script>
+</body>
+</html>

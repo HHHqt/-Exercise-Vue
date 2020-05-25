@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="/js/vue.js" type="text/javascript"></script>
+    <script src="../js/vue.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="app">
     <ul>
 <!--        从父组件传值到子组件-->
-        <product-com v-for="item in proList"></product-com>
+        <picd :abc="item" v-for="item in proList"></picd>
     </ul>
 </div>
-<script>
-<!--    根组件-->
-Vue.component("product-com",{
+<script type="text/javascript">
+// 产品组件
+Vue.component("picd",{
+    props:['abc'],
     template:`<li>
-                    <h3>产品名称：</h3>
-                    <h4>产品描述：</h4>
-                    <p>价格：</p>
-              </li>`
+                    <h3>产品名称：{{abc.title}}</h3>
+                    <h4>产品描述：{{abc.text}}</h4>
+                    <p>价格：{{abc.price}}</p>
+              </li>`,
 })
+// 根组件
     var app = new Vue({
         el:'#app',
         data:{

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <school v-for="item in schoolList" :schoolname="item" @cshool="change"></school>
+        <h3>{{chooesschool}}</h3>
+    </ul>
+</div>
+<script type="text/javascript">
+    Vue.component("school",{
+        props:['schoolname'],
+        template:`
+                    <li>
+                        学校名称：{{schoolname}}
+                        <button @click="chooesEvent(schoolname)">选择学校</button>
+                    </li>
+        `,
+        methods: {
+            chooesEvent:function (schoolname) {
+                console.log(schoolname)
+                //想要将子元素的数据传递给父元素，需要自定义触发事件，实现数据的传输
+                //触发一个叫做cshool的事件
+                //拿到schoolname的值
+                this.$emit('cshool',schoolname)
+            }
+        }
+    })
+<!--    根组件-->
+    var app = new Vue({
+        el:'#app',
+        data:{
+            schoolList: ['浙大','清华','北大','中大'],
+            chooesschool:[]
+        },
+        methods:{
+                //通过监听器监听到该school标签里的按钮触发之后，触发监听器的change事件，获取schoolname的值
+                change:function (data) {
+                    this.chooesschool = data
+                }
+        }
+    })
+</script>
+</body>
+</html>
