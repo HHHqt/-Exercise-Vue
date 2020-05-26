@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<!--<div id="app">-->
+<!--    <ul>-->
+<!--&lt;!&ndash;        因为父元素的方法可以直接修改父元素的数据-->
+<!--            所以将父元素的方法直接传递给字元素，-->
+<!--            然后又子元素进行调用，从而修改父元素的数据&ndash;&gt;-->
+<!--        <school v-for="item in schoolList" :schoolname="item" :method="change"></school>-->
+<!--        {{chooseschool}}-->
+<!--    </ul>-->
+<!--</div>-->
+<!--<script>-->
+<!--    Vue.component("school",{-->
+<!--        props:['schoolname','method'],-->
+<!--        template:`-->
+<!--        <li>-->
+<!--        学校名称：{{schoolname}}-->
+<!--            <button @click="chooseevent(schoolname)">选择</button>-->
+<!--        </li>-->
+<!--        `,-->
+<!--        methods:{-->
+<!--          chooseevent:function (schoolname) {-->
+<!--                console.log(schoolname)-->
+<!--              this.$emit("chooseschool",schoolname)-->
+<!--              this.method(schoolname)-->
+<!--          }-->
+<!--        }-->
+<!--    })-->
+<!--    var app = new Vue({-->
+<!--        el:'#app',-->
+<!--        data:{-->
+<!--            schoolList:['北大','清华','中大','浙大'],-->
+<!--            chooseschool:[]-->
+<!--        },-->
+<!--        methods: {-->
+<!--            change:function (name) {-->
+<!--                // console.log(name)-->
+<!--                this.chooseschool = name-->
+<!--            }-->
+<!--        }-->
+<!--    })-->
+<!--</script>-->
+
+<!--通过$parent属性-->
+<!--<div id="app">-->
+<!--    <ul>-->
+<!--        <school v-for="item in schoolList" :schoolname="item"></school>-->
+<!--        {{chooseschool}}-->
+<!--    </ul>-->
+<!--</div>-->
+<!--<script>-->
+<!--    Vue.component("school",{-->
+<!--        props:['schoolname','method'],-->
+<!--        template:`-->
+<!--        <li>-->
+<!--        学校名称：{{schoolname}}-->
+<!--            <button @click="chooseevent(schoolname)">选择</button>-->
+<!--        </li>-->
+<!--        `,-->
+<!--        methods:{-->
+<!--            chooseevent:function (schoolname) {-->
+<!--                console.log(schoolname)-->
+<!--                //组件可以通过$parent属性找到父元素的vue对象-->
+<!--                this.$parent.change(schoolname)-->
+<!--            }-->
+<!--        }-->
+<!--    })-->
+<!--    var app = new Vue({-->
+<!--        el:'#app',-->
+<!--        data:{-->
+<!--            schoolList:['北大','清华','中大','浙大'],-->
+<!--            chooseschool:[]-->
+<!--        },-->
+<!--        methods: {-->
+<!--            change:function (name) {-->
+<!--                // console.log(name)-->
+<!--                this.chooseschool = name-->
+<!--            }-->
+<!--        }-->
+<!--    })-->
+<!--</script>-->
+
+
+<!--<div id="app">-->
+<!--    <ul>-->
+<!--        <school v-for="item in schoolList" :schoolname="item"></school>-->
+<!--        {{chooseschool}}-->
+<!--    </ul>-->
+<!--</div>-->
+<!--<script>-->
+<!--    // 直接在按钮事件里调用父元素的函数-->
+<!--    Vue.component("school",{-->
+<!--        props:['schoolname','method'],-->
+<!--        template:`-->
+<!--        <li>-->
+<!--        学校名称：{{schoolname}}-->
+<!--            <button @click="$parent.change(schoolname)">选择</button>-->
+<!--        </li>-->
+<!--        `,-->
+<!--        -->
+<!--    })-->
+<!--    var app = new Vue({-->
+<!--        el:'#app',-->
+<!--        data:{-->
+<!--            schoolList:['北大','清华','中大','浙大'],-->
+<!--            chooseschool:[]-->
+<!--        },-->
+<!--        methods: {-->
+<!--            change:function (name) {-->
+<!--                // console.log(name)-->
+<!--                this.chooseschool = name-->
+<!--            }-->
+<!--        }-->
+<!--    })-->
+<!--</script>-->
+
+
+
+<div id="app">
+    <ul>
+        <school v-for="item in schoolList" :schoolname="item"></school>
+        {{chooseschool}}
+    </ul>
+</div>
+<script>
+    // 直接在按钮事件里调用父元素的函数
+    Vue.component("school",{
+        props:['schoolname','method'],
+        template:`
+        <li>
+        学校名称：{{schoolname}}
+            <button @click="$parent.chooseschool = schoolname">选择</button>
+        </li>
+        `,
+
+    })
+    var app = new Vue({
+        el:'#app',
+        data:{
+            schoolList:['北大','清华','中大','浙大'],
+            chooseschool:[]
+        },
+    })
+</script>
+</body>
+</html>
