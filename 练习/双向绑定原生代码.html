@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" name="" id="username" value="">
+<h1></h1>
+<script>
+    let inputDom = document.querySelector("#username")
+    inputDom.oninput = function () {
+        document.querySelector("h1").innerHTML = inputDom.value
+    }
+</script>
+</body>
+</html>
