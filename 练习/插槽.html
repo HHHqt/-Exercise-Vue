@@ -8,9 +8,23 @@
 <body>
 <div id="app">
     <input type="text" v-model="username" value="/">
+    <navigation-link>
+        好的
+        <p>sdjfksjdf</p>
+    </navigation-link>
     {{username}}
 </div>
 <script>
+    Vue.component("navigation-link",{
+        props:['username'],
+        template:`<div>
+            <a>
+
+            </a>
+            <slot></slot>
+                    </div>`
+    })
+
     var app = new Vue({
         el:'#app',
         data:{
