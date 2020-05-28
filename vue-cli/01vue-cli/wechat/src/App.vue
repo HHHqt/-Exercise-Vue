@@ -48,6 +48,7 @@ export default {
   methods:{
     name:function (index) {
       this.activeusername = this.userlist[index]
+      // console.log(this.userlist[index])
     }
   }
 }

@@ -3,7 +3,7 @@
         <h3>用户列表</h3>
         <hr>
         <ul>
-            <li v-for="(item,index) in userlist" :key="'userlist'+index" @click="choose">
+            <li v-for="(item,index) in userlist" @click="choose(index)" :key="'userlist'+index" >
                 <img :src="item.headerimg">
                 <h3>{{item.username}}</h3>
             </li>
@@ -22,7 +22,7 @@
             choose:function (index) {
                 //将选择用户的事件触发，发送给到父元素
                 this.$emit('use',index)
-                console.log('index')
+                // console.log('index')
             }
         }
     }
