@@ -4,7 +4,6 @@
         <button class="sendbtn" @click="send">发送</button>
     </div>
 </template>
-
 <script>
     export default {
         props:['sendevent'],
