@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <input @keydown.enter="send" v-model="inputcontent" type="text">
-        <button @click="send">发送</button>
+    <div class="send">
+        <input class="sendinput" @keydown.enter="send" v-model="inputcontent" type="text">
+        <button class="sendbtn" @click="send">发送</button>
     </div>
 </template>
 
@@ -24,5 +24,20 @@
 </script>
 
 <style scoped>
-
+    .send{
+        display: flex;
+    }
+    .sendinput{
+        width: 592px;
+        height: 150px;
+        position: absolute;
+        bottom: 0;
+    }
+    .sendbtn{
+        width: 85px;
+        height: 35px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
 </style>

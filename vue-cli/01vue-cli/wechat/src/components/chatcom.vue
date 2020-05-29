@@ -9,7 +9,6 @@
         </div>
         <chatinputcom :sendevent="sendevent"></chatinputcom>
     </div>
-
 </template>
 <script>
     import chatinputcom from "./chatinputcom";
@@ -54,11 +53,11 @@
         }
     }
 </script>
-<style>
+<style scoped>
     .chat{
         width: 600px;
         height: 500px;
         background: #dfe8ea;
+        position: relative;
     }
-
 </style>
