@@ -53,13 +53,18 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
   .content{
     width: 800px;
     height: 500px;
     display: flex;
     border: solid 1px black;
-    margin: 0 auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
   }
 </style>
 
