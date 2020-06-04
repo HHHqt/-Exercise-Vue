@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <router-link>首页</router-link>
-    <router-link>关于</router-link>
-
+    <router-link to="/Home" tag="button">首页</router-link>
+    <router-link to="/About" tag="button">关于</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -11,6 +11,7 @@
 export default {
   name: "App",
   components: {
+
   }
 };
 </script>

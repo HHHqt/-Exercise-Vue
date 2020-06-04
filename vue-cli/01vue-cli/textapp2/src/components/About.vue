@@ -1,6 +1,8 @@
 <template>
-  <h2>no!!!!!!!!!</h2>
-  <p>hhhhhhhh</p>
+  <div>
+    <h2>no!!!!!!!!!</h2>
+    <p>hhhhhhhh</p>
+  </div>
 </template>
 
 <script>
