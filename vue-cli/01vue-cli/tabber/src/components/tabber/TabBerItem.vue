@@ -1,15 +1,40 @@
 <template>
-  <div class="tab-bar-item">
-    <slot name="item-icon"></slot>
-    <slot name="item-text"></slot>
-<!--    <img src="../../assets/img/tabber/首页.svg" alt="">-->
-<!--    <div>首页</div>-->
+  <div class="tab-bar-item" @click="itemClick">
+    <div v-if="!isActive">
+      <slot name="item-icon"></slot>
+    </div>
+    <div v-else>
+      <slot name="item-icon-active"></slot>
+    </div>
+    <div :class="{active:isActive}">
+      <slot name="item-text"></slot>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: "TabBerItem"
+    name: "TabBerItem",
+    props:{
+        path:String
+    },
+    data(){
+      return{
+        // isActive: true
+      }
+    },
+    computed:{
+      isActive() {
+        //indexOf()  ->前面的this.$route.path等于indexOf(this.path)时！==-1,不相同时==-1
+        //如果要检索的字符串值没有出现，则该方法返回 -1。
+        return this.$route.path.indexOf(this.path) !== -1
+      }
+    },
+    methods:{
+      itemClick () {
+        this.$router.replace(this.path)
+      }
+    }
   }
 </script>
 
@@ -27,5 +52,8 @@
     /*解释vertical-align*/
     /*https://developer.mozilla.org/zh-CN/docs/Web/CSS/vertical-align*/
     vertical-align: middle;
+  }
+  .active{
+    color: pink;
   }
 </style>
