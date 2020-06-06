@@ -33,7 +33,10 @@
     return new Promise((resolve, reject) => {
       //第三次网络请求的代码
       setTimeout(() => {
-        resolve()
+        //成功时调用
+        // resolve()
+        //失败时调用
+        reject('error message')
       },1000)
     })
   }).then(() => {
@@ -42,7 +45,9 @@
     console.log('Hello JavaScript');
     console.log('Hello JavaScript');
     console.log('Hello JavaScript');
-  })
+  }).catch(er => {
+     console.log(er);
+   })
 </script>
 </body>
 </html>
