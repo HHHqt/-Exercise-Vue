@@ -6,7 +6,7 @@
     <div v-else>
       <slot name="item-icon-active"></slot>
     </div>
-    <div :class="{active:isActive}">
+    <div :style="activeStyle">
       <slot name="item-text"></slot>
     </div>
   </div>
@@ -16,7 +16,11 @@
   export default {
     name: "TabBerItem",
     props:{
-        path:String
+        path:String,
+        activeColor:{
+          type:String,
+          default:'pink'
+        }
     },
     data(){
       return{
@@ -28,6 +32,9 @@
         //indexOf()  ->前面的this.$route.path等于indexOf(this.path)时！==-1,不相同时==-1
         //如果要检索的字符串值没有出现，则该方法返回 -1。
         return this.$route.path.indexOf(this.path) !== -1
+      },
+      activeStyle(){
+        return this.isActive ? {color:this.activeColor} : {}
       }
     },
     methods:{
