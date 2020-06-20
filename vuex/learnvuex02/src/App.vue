@@ -10,6 +10,15 @@
     <h2>{{$store.getters.PowerCounter}}</h2>
     <h2>{{$store.getters.twmore}}</h2>
     <h2>{{$store.getters.Age(17)}}</h2>
+<!--    modules演示-->
+<!--    state演示-->
+    <h3>{{$store.state.a.name}}</h3>
+<!--    mutations演示-->
+    <button @click="upDateName">修改NAME</button>
+<!--    getters演示-->
+    <h3>{{$store.getters.fullname}}</h3>
+    <h3>{{$store.getters.fullname02}}</h3>
+    <h3>{{$store.getters.fullname03}}</h3>
   </div>
 </template>
 
@@ -35,7 +44,11 @@
         })
       },
       addnamea() {
-        this.$store.commit('addnamea')
+        // this.$store.commit('addnamea')
+        this.$store.dispatch('actionsUpdate')
+      },
+      upDateName() {
+        this.$store.commit('Name')
       }
     }
   }
