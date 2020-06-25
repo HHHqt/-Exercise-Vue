@@ -25,8 +25,8 @@
 </template>
 
 <script>
-  import TabBer from "components/tabber/TabBer";
-  import TabBerItem from "components/tabber/TabBerItem";
+  import TabBer from "components/tabbar/TabBer";
+  import TabBerItem from "components/tabbar/TabBerItem";
   export default {
     name: "MainTabBer",
     components:{
